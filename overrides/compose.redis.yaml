@@ -11,16 +11,19 @@ services:
 
   redis-cache:
     image: redis:6.2-alpine
+    restart: always
     volumes:
       - redis-cache-data:/data
 
   redis-queue:
     image: redis:6.2-alpine
+    restart: always
     volumes:
       - redis-queue-data:/data
 
   redis-socketio:
     image: redis:6.2-alpine
+    restart: always
     volumes:
       - redis-socketio-data:/data
 
