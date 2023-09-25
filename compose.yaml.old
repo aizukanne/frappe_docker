@@ -2,7 +2,7 @@ x-customizable-image: &customizable_image
   # By default the image used only contains the `frappe` and `erpnext` apps.
   # See https://github.com/frappe/frappe_docker/blob/main/docs/custom-apps.md
   # about using custom images.
-  image: aizukanne/erpnext-plus:1.0.0
+  image: frappe/erpnext:${ERPNEXT_VERSION:?No ERPNext version set}
 
 x-depends-on-configurator: &depends_on_configurator
   depends_on:
@@ -40,11 +40,9 @@ services:
 
   backend:
     <<: *backend_defaults
-    restart: always
 
   frontend:
     <<: *customizable_image
-    restart: always
     command:
       - nginx-entrypoint.sh
     environment:
@@ -64,7 +62,6 @@ services:
 
   websocket:
     <<: [*depends_on_configurator, *customizable_image]
-    restart: always
     command:
       - node
       - /home/frappe/frappe-bench/apps/frappe/socketio.js
@@ -73,22 +70,18 @@ services:
 
   queue-short:
     <<: *backend_defaults
-    restart: always
     command: bench worker --queue short
 
   queue-default:
     <<: *backend_defaults
-    restart: always
     command: bench worker --queue default
 
   queue-long:
     <<: *backend_defaults
-    restart: always
     command: bench worker --queue long
 
   scheduler:
     <<: *backend_defaults
-    restart: always
     command: bench schedule
 
 # ERPNext requires local assets access (Frappe does not)
