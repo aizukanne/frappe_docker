@@ -13,7 +13,7 @@ This script uses Docker with the Frappe/ERPNext Docker Repository and can be use
 Download the Easy Install script and execute it:
 
 ```sh
-wget https://github.com/aizukanne/frappe_docker/blob/main/easy-install.py
+wget https://raw.githubusercontent.com/aizukanne/frappe_docker/main/easy-install.py
 python3 easy-install.py --prod --email <email_address_for_SSL> -s <SITENAME> -n <PROJECT>
 ```
 This script will install docker on your system and will fetch the required containers, setup bench and a default ERPNext instance.
