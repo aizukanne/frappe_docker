@@ -293,7 +293,7 @@ def create_site(
 				"--admin-password",
 				admin_pass,
 				"--install-app",
-				"erpnext",
+				"erpnext, hrms, payments",
 				"--set-default",
 			],
 			check=True,
