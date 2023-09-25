@@ -9,6 +9,7 @@ services:
 
   proxy:
     image: traefik:2.5
+    restart: always
     command:
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
