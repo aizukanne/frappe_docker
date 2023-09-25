@@ -3,7 +3,7 @@
 
 Everything about [Frappe](https://github.com/frappe/frappe) and [ERPNext](https://github.com/frappe/erpnext) in containers.
 
-# Easy Install Script
+## Easy Install Script
 The Easy Install script should get you going with a Frappe/ERPNext setup with minimal manual intervention and effort.
 This script uses Docker with the Frappe/ERPNext Docker Repository and can be used for both Development setup and Production setup.
 
